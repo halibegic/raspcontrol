@@ -9,11 +9,6 @@ body {
   background: #fff;
   padding: 40px 20px;
 }
-.container, .navbar .container {
-  max-width: 700px;
-}
-
-
 .center {
   text-align: center;
 }
