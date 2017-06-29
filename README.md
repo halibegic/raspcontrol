@@ -28,3 +28,7 @@ And create the json authentifation file `./database.aptmnt` with 740 rights and 
 In order to have some beautiful URLs, you can enable URL Rewriting.
 __Note:__ It's not necessary to enable URL Rewriting to use Raspcontrol.
 
+## Screenshot
+
+![Home](https://raw.githubusercontent.com/halibegic/raspcontrol/master/img/home.png)
+

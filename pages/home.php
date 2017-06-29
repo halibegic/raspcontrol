@@ -52,8 +52,8 @@ function icon_alert($alert) {
                 <div class="icon">
                     <i class="fa fa-home" aria-hidden="true"></i>
                 </div>
-                <p>Hostname</p>
-                <h4><?php echo Rbpi::hostname(); ?></h4>
+                <p class="mb-4">Hostname</p>
+                <h4 class="mb-0"><?php echo Rbpi::hostname(); ?></h4>
             </div>
         </div>
 
@@ -62,8 +62,8 @@ function icon_alert($alert) {
                 <div class="icon">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                 </div>
-                <p>Internal IP</p>
-                <h4><?php echo Rbpi::internalIp(); ?></h4>
+                <p class="mb-4">Internal IP</p>
+                <h4 class="mb-0"><?php echo Rbpi::internalIp(); ?></h4>
             </div>            
         </div>
 
@@ -72,8 +72,8 @@ function icon_alert($alert) {
                 <div class="icon">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                 </div>
-                <p>External IP</p>
-                <h4><?php echo $external_ip; ?></h4>
+                <p class="mb-4">External IP</p>
+                <h4 class="mb-0"><?php echo $external_ip; ?></h4>
             </div>            
         </div>
 
@@ -82,8 +82,8 @@ function icon_alert($alert) {
                 <div class="icon">
                     <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
-                <p>Server</p>
-                <h4><?php echo Rbpi::webServer(); ?></h4>
+                <p class="mb-4">Server</p>
+                <h4 class="mb-0"><?php echo Rbpi::webServer(); ?></h4>
             </div>
         </div>
 
