@@ -35,7 +35,7 @@ class CPU {
         return $result;
     }
 
-    private static $MaxTemp = 185;
+    private static $MaxTemp = 85;
 
     public static function heat() {
         global $ssh;
@@ -47,8 +47,11 @@ class CPU {
 
         $cpuDetails = $ssh->shell_exec_noauth('ps -e -o pcpu,user,args --sort=-pcpu | sed "/^ 0.0 /d" | head -' . self::$DETAIL_LINE_COUNT);
 
-        $result['degrees'] = round($currenttemp /1000 * 1.8 + 32);
-        $result['percentage'] = round($result['degrees'] / self::$MaxTemp * 100);
+        $result['degrees'] = array();
+        $result['degrees']['celsius'] = round($currenttemp / 1000);
+        $result['degrees']['fahrenheit'] = ($result['degrees']['celsius'] * 1.8 + 32);
+
+        $result['percentage'] = round($result['degrees']['celsius'] / self::$MaxTemp * 100);
 
         if ($result['percentage'] >= '80')
             $result['alert'] = 'danger';
