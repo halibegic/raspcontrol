@@ -11,17 +11,13 @@ This is a Fork of the orignal Raspcontrol by Bioshox - It appears the repo is no
 
 You need a web server installed on your Raspberry Pi.
 
-
 If you are in a hurry, just clone the repository with:
 
-	git clone https://github.com/harmon25/raspcontrol.git
+	git clone https://github.com/halibegic/raspcontrol.git
 
-And create the json authentifation file `./database.aptmnt` with 740 rights and owned by www-data:
+Copy the json authentifation file `./database.aptmnt.example` to `./database.aptmnt` with 740 rights and owned by www-data.
 
-	{
- 	   "user":       "yourName",
- 	   "password":   "yourPassword"
-	}
+Default username and password: admin/admin.
 
 ## Optional configuration
 
