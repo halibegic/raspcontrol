@@ -217,11 +217,11 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
                 <footer class="footer text-center mt-4">
 
                     <span>
-                        Powered by <a href="https://github.com/harmon25/raspcontrol">Raspcontrol</a>.
+                        Powered by <a href="https://github.com/halibegic/raspcontrol">Raspcontrol</a>.
                     </span>
 
                     <span>
-                        Sources are available on <a href="https://github.com/harmon25/raspcontrol">Github</a>.
+                        Sources are available on <a href="https://github.com/halibegic/raspcontrol">Github</a>.
                     </span>                    
 
                 </footer>
