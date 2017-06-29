@@ -200,9 +200,9 @@ function shell_to_html_table_result($shellExecOutput) {
             <strong><i class="fa fa-user"></i> Users</strong>
         </td>
 
-        <td><span class="badge"><?php echo sizeof($users); ?></span></td>
+        <td><span class="badge badge-default"><?php echo sizeof($users); ?></span></td>
         <td>
-            <ul class="unstyled">
+            <ul class="list-unstyled">
                 <?php
                 if (sizeof($users) > 0) {
                     for ($i = 0; $i < sizeof($users); $i++)
