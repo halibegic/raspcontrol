@@ -26,22 +26,10 @@
     }
 }
 
-.center {
-    text-align: center;
-}
-
 
 /*
  * Pages
  */
-
-.form-login {
-    margin: 20px 0 60px 0;
-}
-
-.form-login input {
-    margin-bottom: 10px;
-}
 
 .details table {
     width: 100%;
@@ -113,7 +101,6 @@
         margin: 0;
         padding: 0;
     }
-    .container,
     .progress {
         max-width: 100% !important;
     }
