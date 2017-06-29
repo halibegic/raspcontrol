@@ -43,7 +43,7 @@ function icon_alert($alert) {
     echo ' float-right" aria-hidden="true"></i>';
 }
 ?>
-<div class="row mb-5">
+<div class="row mb-3">
 
     <div class="col-sm-4">
         <i class="fa fa-home" aria-hidden="true"></i> <?php echo Rbpi::hostname(); ?>
@@ -60,7 +60,7 @@ function icon_alert($alert) {
 
 </div>
 
-<div class="mb-5">
+<div class="mb-3">
     <a href="<?php echo DETAILS; ?>#check-uptime">
         <i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $uptime; ?>
     </a>

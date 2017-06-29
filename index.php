@@ -99,7 +99,7 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
 
     <body>
 
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-3">
 
             <div class="container">
 
@@ -198,37 +198,33 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
             </center>
         </div>
 
-        <div class="content">
+        <div class="container">
 
-            <div class="container">
+        <?php if (isset($_SESSION['message'])) : ?>
 
-            <?php if (isset($_SESSION['message'])) : ?>
-
-                <div class="alert alert-danger">
-                    <strong>Oups!</strong> <?php echo $_SESSION['message']; ?>
-                </div>
-
-                <?php unset($_SESSION['message']); ?>
-
-            <?php endif; ?>
-
-                <?php include $page; ?>
-
-                <footer class="footer text-center">
-
-                    <span>
-                        Powered by <a href="https://github.com/harmon25/raspcontrol">Raspcontrol</a>.
-                    </span>
-
-                    <span>
-                        Sources are available on <a href="https://github.com/harmon25/raspcontrol">Github</a>.
-                    </span>                    
-
-                </footer>
-
+            <div class="alert alert-danger">
+                <strong>Oups!</strong> <?php echo $_SESSION['message']; ?>
             </div>
 
-        </div><!-- /content -->
+            <?php unset($_SESSION['message']); ?>
+
+        <?php endif; ?>
+
+            <?php include $page; ?>
+
+            <footer class="footer text-center mt-3">
+
+                <span>
+                    Powered by <a href="https://github.com/harmon25/raspcontrol">Raspcontrol</a>.
+                </span>
+
+                <span>
+                    Sources are available on <a href="https://github.com/harmon25/raspcontrol">Github</a>.
+                </span>                    
+
+            </footer>
+
+        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/tether.min.js"></script>
