@@ -24,7 +24,7 @@ if (isset($_SESSION['authentificated']) && $_SESSION['authentificated']) {
 
     function is_active($page) {
         if ($page == $_GET['page'])
-            echo ' class="active"';
+            echo 'active';
     }
 
 } else {
@@ -81,32 +81,108 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
 
     exit();
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Raspcontrol</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="harmoN" />
         <meta name="robots" content="noindex, nofollow, noarchive" />
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-        <link rel="icon" type="image/png" href="img/favicon.ico" />
-        <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
-        <link href="css/raspcontrol.css" rel="stylesheet" media="screen" />
-        <link rel="stylesheet" href="css/jquery-ui.css" />    
+        <link rel="icon" href="img/favicon.ico">
+        <title>Raspcontrol</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/raspcontrol.css" rel="stylesheet">
+        <link href="css/jquery-ui.css" rel="stylesheet">    
     </head>
 
     <body>
 
-        <header>
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+
             <div class="container">
-                <a href="<?php echo INDEX; ?>"><img src="img/raspcontrol.png" alt="rbpi" /></a>
-                <h1><a href="<?php echo INDEX; ?>">Raspcontrol</a></h1>
-                <h2>The Raspberry Pi Control Center</h2>        
-            </div>     
-        </header>
+
+                <div class="d-flex justify-content-between">
+
+                    <a class="navbar-brand" href="<?php echo INDEX; ?>">
+                        <img src="img/raspcontrol.png" alt="rbpi" height="32" />
+                    </a>
+                
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+
+                <?php if ($display) : ?>
+
+                <div class="collapse navbar-collapse" id="nav">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item <?php is_active('home'); ?>">
+                            <a class="nav-link" href="<?php echo INDEX; ?>">
+                                <i class="fa fa-home" aria-hidden="true"></i> Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item <?php is_active('details'); ?>">
+                            <a class="nav-link" href="<?php echo DETAILS; ?>">
+                                <i class="fa fa-search" aria-hidden="true"></i> Details
+                            </a>
+                        </li>
+
+                        <li class="nav-item <?php is_active('services'); ?>">
+                            <a class="nav-link" href="<?php echo SERVICES; ?>">
+                                <i class="fa fa-cog" aria-hidden="true"></i> Services
+                            </a>
+                        </li>
+
+                        <li class="nav-item <?php is_active('disks'); ?>">
+                            <a class="nav-link" href="<?php echo DISKS; ?>">
+                                <i class="fa fa-archive" aria-hidden="true"></i> Disks
+                            </a>
+                        </li>
+
+                        <li class="nav-item <?php is_active('gpio'); ?>">
+                            <a class="nav-link" href="<?php echo GPIO; ?>">
+                                <i class="fa fa-random" aria-hidden="true"></i> GPIO
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav my-2 my-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo LOGOUT; ?>">
+                                <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-rootaction="reboot" class="rootaction" href="#">
+                                <i class="fa fa-repeat" aria-hidden="true"></i> Reboot
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-rootaction="shutdown" class="rootaction" href="#">
+                                <i class="fa fa-stop" aria-hidden="true"></i> Shutdown
+                            </a>
+                        </li>                        
+
+                    </ul>
+
+                </div>
+
+                <?php endif; ?>
+
+            </div>
+
+        </nav>
+
         <div id="login-form" title="Login to perform root actions">
             <center>
                 <p class="validateTips">All form fields are required.</p>
@@ -122,68 +198,49 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
             </center>
         </div>
 
-    <?php if ($display) : ?>
+        <div class="content">
 
-        <div class="navbar navbar-static-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li<?php is_active('home'); ?>><a href="<?php echo INDEX; ?>"><i class="icon-home icon-white"></i> Home</a></li>
-                            <li<?php is_active('details'); ?>><a href="<?php echo DETAILS; ?>"><i class="icon-search icon-white"></i> Details</a></li>
-                            <li<?php is_active('services'); ?>><a href="<?php echo SERVICES; ?>"><i class="icon-cog icon-white"></i> Services</a></li>
-                            <li<?php is_active('disks'); ?>><a href="<?php echo DISKS; ?>"><i class="icon-disks icon-white"></i> Disks</a></li>
-                            <li<?php is_active('gpio'); ?>><a href="<?php echo GPIO; ?>"><i class="icon-random icon-white"></i> GPIO</a></li>
-                        </ul>
-                        <ul class="nav pull-right">
-                            <li><a href="<?php echo LOGOUT; ?>"><i class="icon-off icon-white"></i> Logout</a></li>    
-                            <li><a data-rootaction="reboot" class="rootaction" href="#"><i class="icon-repeat icon-white"></i> Reboot</a></li>
-                            <li><a data-rootaction="shutdown" class="rootaction" href="#"><i class="icon-stop icon-white"></i> Shutdown</a></li>             
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <?php endif; ?>
-
-    <div id="content">
-        <?php if (isset($_SESSION['message'])) { ?>
             <div class="container">
-                <div class="alert alert-error">
+
+            <?php if (isset($_SESSION['message'])) : ?>
+
+                <div class="alert alert-danger">
                     <strong>Oups!</strong> <?php echo $_SESSION['message']; ?>
                 </div>
+
+                <?php unset($_SESSION['message']); ?>
+
+            <?php endif; ?>
+
+                <?php include $page; ?>
+
+                <footer class="footer text-center">
+
+                    <span>
+                        Powered by <a href="https://github.com/harmon25/raspcontrol">Raspcontrol</a>.
+                    </span>
+
+                    <span>
+                        Sources are available on <a href="https://github.com/harmon25/raspcontrol">Github</a>.
+                    </span>                    
+
+                </footer>
+
             </div>
-            <?php unset($_SESSION['message']);
-        } ?>
 
+        </div><!-- /content -->
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/tether.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        
         <?php
-        include $page;
+        // load specific scripts
+        if ('details' === $_GET['page']) {
+            echo '   <script src="js/details.js"></script>';
+        }
         ?>
-
-    </div> <!-- /content -->
-
-    <footer>
-        <div class="container">
-            <p>Powered by <a href="https://github.com/harmon25/raspcontrol">Raspcontrol</a>.</p>
-            <p>Sources are available on <a href="https://github.com/harmon25/raspcontrol">Github</a>.</p>
-        </div>
-    </footer>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <?php
-    // load specific scripts
-    if ('details' === $_GET['page']) {
-        echo '   <script src="js/details.js"></script>';
-    }
-    ?>
 
     <!-- General scripts -->
     <script>

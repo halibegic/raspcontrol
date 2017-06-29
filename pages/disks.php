@@ -7,13 +7,13 @@ use lib\Disks;
 $disks = Disks::disks();
 
 function label_partition($status) {
-    echo '<span class="label label-';
+    echo '<span class="badge badge-';
     switch ($status) {
         default:
             echo 'success';
             break;
         case '':
-            echo 'important';
+            echo 'danger';
             break;
     }
     echo '">';
@@ -29,27 +29,56 @@ function label_partition($status) {
 }
 ?>
 
-<div class="container details">
-    <table>
-        <tr class="disks" id="check-disks">
-            <td class="check" rowspan="<?php echo sizeof($disks); ?>"><i class="icon-cog"></i> Disks</td>
-            <?php
-            for ($i = 0; $i < sizeof($disks); $i++) {
-                if ($disks[$i]["type"] != "disk") {
-                    if (strpos($disks[$i]['name'], "sda") !== false) {
-                        echo '<td class="icon" style="padding-left: 10px;">';
-                        echo '<a data-rootaction="changepartitionstatus" data-partition-name="' . $disks[$i]["name"] . '" data-curr-mountpoint="' . $disks[$i]["mountpoint"] . '" class="rootaction" href="javascript:;">';
-                        echo label_partition($disks[$i]['mountpoint']), '</a></td>';
-                    }
-                    else
-                        echo '<td class="icon" style="padding-left: 10px;">', label_partition($disks[$i]['mountpoint']), '</td>';
-                    echo '<td class="infos">', $disks[$i]['name'] . "<br>Size: " . $disks[$i]['size'] . "<br>Mountpoint: " . $disks[$i]['mountpoint'], '</td>';
-                }
-                else
-                    echo '<td class="icon">', $disks[$i]['name'], '</td>';
+<div class="row">
 
-                echo '</tr>';
-            }
-            ?>
-    </table>
+    <div class="col-2">
+
+        <strong class="text-bold">Disks</strong>
+        
+    </div>
+
+    <div class="col-10">
+
+        <table class="table table-clean table-responsive mb-0">
+
+            <?php for ($i = 0; $i < sizeof($disks); $i++) : ?>
+
+                <tr class="disks" id="check-disks">
+                    
+                    <?php if ($disks[$i]["type"] != "disk") : ?>
+
+                        <?php if (strpos($disks[$i]['name'], "sda") !== false) : ?>
+                        
+                            <td>
+                                <a data-rootaction="changepartitionstatus" data-partition-name="<?php echo $disks[$i]["name"]; ?>" data-curr-mountpoint="<?php echo $disks[$i]["mountpoint"]; ?>" class="rootaction" href="javascript:;">
+                                    <?php echo label_partition($disks[$i]['mountpoint']); ?>
+                                </a>
+                            </td>
+                        
+                        <?php else : ?>
+                    
+                            <td>
+                                <?php echo label_partition($disks[$i]['mountpoint']); ?>
+                            </td>
+
+                            <td>
+                                <?php echo $disks[$i]['name'] . "<br>Size: " . $disks[$i]['size'] . "<br>Mountpoint: " . $disks[$i]['mountpoint']; ?>
+                            </td>
+
+                        <?php endif; ?>
+
+                    <?php else : ?>
+                      
+                        <td class="icon"><?php echo $disks[$i]['name']; ?></td>
+
+                    <?php endif; ?>
+
+                </tr>
+            
+            <?php endfor; ?>
+
+        </table>
+
+    </div>
+
 </div>

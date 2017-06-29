@@ -7,7 +7,7 @@ use lib\Services;
 $services = Services::services();
 
 function label_service($status) {
-    echo '<span class="label label-';
+    echo '<span class="badge badge-';
     switch ($status) {
         case '+':
             echo 'success';
@@ -16,7 +16,7 @@ function label_service($status) {
             echo 'warning';
             break;
         default:
-            echo 'important';
+            echo 'danger';
     }
     echo '">';
     switch ($status) {
@@ -32,20 +32,33 @@ function label_service($status) {
     echo '</span>';
 }
 ?>
+<div class="row">
 
-<div class="container details">
-    <table>
-        <tr class="services" id="check-services">
-            <td class="check" rowspan="<?php echo sizeof($services); ?>"><i class="icon-cog"></i> Services</td>
-            <?php
-            for ($i = 0; $i < sizeof($services); $i++) {
-                echo '<td class="icon" style="padding-left: 10px;">';
-                echo '<a data-rootaction="changeservicestatus" data-service-name="' . $services[$i]["name"] . '" class="rootaction" href="javascript:;">';
-                echo label_service($services[$i]['status']), '</a></td>
-            <td class="infos">', $services[$i]['name'], '</td>
-          </tr>
-          ', ($i == sizeof($hdd) - 1) ? null : '<tr class="service">';
-            }
-            ?>
-    </table>
+    <div class="col-2">
+
+        <strong class="text-bold">Services</strong>
+
+    </div>
+
+    <div class="col-10">
+
+        <table class="table table-clean table-responsive mb-0">
+
+            <?php for ($i = 0; $i < sizeof($services); $i++) : ?>
+
+                <tr class="services" id="check-services">
+                    <td>
+                        <a data-rootaction="changeservicestatus" data-service-name="<?php echo $services[$i]["name"] ?>" class="rootaction" href="javascript:;">
+                            <?php echo label_service($services[$i]['status']); ?>        
+                        </a>
+                    </td>
+                    <td><?php echo $services[$i]['name']; ?></td>
+                </tr>
+
+            <?php endfor; ?>
+
+        </table>
+
+    </div>
+
 </div>
