@@ -16,7 +16,7 @@ If you are in a hurry, just clone the repository with:
 
 	git clone https://github.com/harmon25/raspcontrol.git
 
-And create the json authentifation file `/etc/raspcontrol/database.aptmnt` with 740 rights and owned by www-data:
+And create the json authentifation file `./database.aptmnt` with 740 rights and owned by www-data:
 
 	{
  	   "user":       "yourName",
@@ -25,6 +25,6 @@ And create the json authentifation file `/etc/raspcontrol/database.aptmnt` with 
 
 ## Optional configuration
 
-In order to have some beautiful URLs, you can enable URL Rewriting.  
+In order to have some beautiful URLs, you can enable URL Rewriting.
 __Note:__ It's not necessary to enable URL Rewriting to use Raspcontrol.
 
