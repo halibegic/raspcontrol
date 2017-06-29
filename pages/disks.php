@@ -61,11 +61,11 @@ function label_partition($status) {
                                 <?php echo label_partition($disks[$i]['mountpoint']); ?>
                             </td>
 
-                            <td>
-                                <?php echo $disks[$i]['name'] . "<br>Size: " . $disks[$i]['size'] . "<br>Mountpoint: " . $disks[$i]['mountpoint']; ?>
-                            </td>
-
                         <?php endif; ?>
+
+                        <td>
+                            <?php echo $disks[$i]['name'] . "<br>Size: " . $disks[$i]['size'] . "<br>Mountpoint: " . $disks[$i]['mountpoint']; ?>
+                        </td>
 
                     <?php else : ?>
                       
