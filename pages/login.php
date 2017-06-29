@@ -7,14 +7,14 @@
             <div class="form-group row">
                 <label for="username" class="col-sm-3 col-form-label">Username</label>
                 <div class="col-sm-9">
-                    <input class="form-control" id="username" type="text" name="username" autofocus>
+                    <input class="form-control" type="text" name="username" autofocus>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="password" class="col-sm-3 col-form-label">Password</label>
                 <div class="col-sm-9">
-                    <input class="form-control" id="password" type="password" name="password">
+                    <input class="form-control" type="password" name="password">
                 </div>
             </div>
 

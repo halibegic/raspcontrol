@@ -183,21 +183,6 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
 
         </nav>
 
-        <div id="login-form" title="Login to perform root actions">
-            <center>
-                <p class="validateTips">All form fields are required.</p>
-                <form>    
-                    Login with a user having root permission to perform this action<br>
-                    <fieldset>
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" class="text ui-widget-content ui-corner-all" />    
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
-                    </fieldset>
-                </form>
-            </center>
-        </div>
-
         <div class="container">
 
             <div class="content p-4">
@@ -228,6 +213,21 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
 
             </div>
 
+        </div>
+
+        <div id="login-form" title="Login to perform root actions" style="display: none">
+            <center>
+                <p class="validateTips">All form fields are required.</p>
+                <form>    
+                    Login with a user having root permission to perform this action<br>
+                    <fieldset>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" class="text ui-widget-content ui-corner-all" />    
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
+                    </fieldset>
+                </form>
+            </center>
         </div>
 
         <script src="js/jquery.min.js"></script>
