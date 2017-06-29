@@ -1,3 +1,59 @@
+body {
+    background-color: #f4f4f4;
+}
+
+.bg-red {
+    background-color: #d9534f;
+}
+
+.bg-blue {
+    background-color: #428bca;
+}
+
+.bg-green {
+    background-color: #1caf9a;
+}
+
+.bg-orange {
+    background-color: #f0ad4e;
+}
+
+.content {
+    background-color: #fff;
+}
+
+.stat .tile {
+    position: relative;
+    padding: 1rem;
+    color: #fff;
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.stat .tile .icon {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    color: rgba(0, 0, 0, 0.05);
+}
+
+.stat .tile .icon i {
+    font-size: 4rem;
+}
+
+.stat .tile:hover,
+.stat .tile:focus {
+    background-color: #444 !important;
+}
+
 .table-clean td,
 .table-clean th {
     border-width: 0;

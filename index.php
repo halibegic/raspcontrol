@@ -99,7 +99,7 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
 
     <body>
 
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-3">
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
 
             <div class="container">
 
@@ -200,29 +200,33 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
 
         <div class="container">
 
-        <?php if (isset($_SESSION['message'])) : ?>
+            <div class="content p-4">
 
-            <div class="alert alert-danger">
-                <strong>Oups!</strong> <?php echo $_SESSION['message']; ?>
+            <?php if (isset($_SESSION['message'])) : ?>
+
+                <div class="alert alert-danger text-center mb-4">
+                    <strong>Oups!</strong> <?php echo $_SESSION['message']; ?>
+                </div>
+
+                <?php unset($_SESSION['message']); ?>
+
+            <?php endif; ?>
+
+                <?php include $page; ?>
+
+                <footer class="footer text-center mt-4">
+
+                    <span>
+                        Powered by <a href="https://github.com/harmon25/raspcontrol">Raspcontrol</a>.
+                    </span>
+
+                    <span>
+                        Sources are available on <a href="https://github.com/harmon25/raspcontrol">Github</a>.
+                    </span>                    
+
+                </footer>
+
             </div>
-
-            <?php unset($_SESSION['message']); ?>
-
-        <?php endif; ?>
-
-            <?php include $page; ?>
-
-            <footer class="footer text-center mt-3">
-
-                <span>
-                    Powered by <a href="https://github.com/harmon25/raspcontrol">Raspcontrol</a>.
-                </span>
-
-                <span>
-                    Sources are available on <a href="https://github.com/harmon25/raspcontrol">Github</a>.
-                </span>                    
-
-            </footer>
 
         </div>
 

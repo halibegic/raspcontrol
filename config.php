@@ -14,7 +14,7 @@ $rewriting = false;
 error_reporting(0);
 define('INDEX', './');
 define('LOGIN', 'login.php');
-define('FILE_PASS', '/etc/raspcontrol/database.aptmnt');
+define('FILE_PASS', './database.aptmnt');
 
 if ($rewriting) {
     define('LOGOUT', './logout');

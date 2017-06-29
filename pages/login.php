@@ -5,21 +5,21 @@
         <form method="post" action="<?php echo LOGIN; ?>">
 
             <div class="form-group row">
-                <label for="username" class="col-sm-2 col-form-label">Username</label>
-                <div class="col-sm-10">
+                <label for="username" class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
                     <input class="form-control" id="username" type="text" name="username" autofocus>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="password" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
+                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
                     <input class="form-control" id="password" type="password" name="password">
                 </div>
             </div>
 
-            <div class="form-group row">
-                <div class="offset-sm-2 col-sm-10">
+            <div class="form-group row mb-0">
+                <div class="offset-sm-3 col-sm-9">
                     <button type="submit" class="btn btn-primary">Sign in</button>
                 </div>
             </div>
